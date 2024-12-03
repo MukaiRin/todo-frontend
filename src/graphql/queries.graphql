@@ -1,0 +1,31 @@
+# Todoの一覧を取得
+query GetTodos {
+  todos {
+    id
+    title
+    completed
+  }
+}
+
+# 新しいTodoを追加
+mutation AddTodo($title: String!) {
+  addTodo(title: $title) {
+    id
+    title
+    completed
+  }
+}
+
+# Todoを削除
+mutation DeleteTodo($id: Int!) {
+  deleteTodo(id: $id)
+}
+
+# Todoを完了状態に更新
+mutation CompleteTodo($id: Int!) {
+  completeTodo(id: $id) {
+    id
+    title
+    completed
+  }
+}

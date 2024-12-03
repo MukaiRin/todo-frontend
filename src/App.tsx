@@ -1,24 +1,16 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import AddTodo from './todo-functions/AddTodo';
+import ListTodo from './todo-functions/ListTodo';
+import { useGetTodosQuery } from './generated/graphql';
 
 function App() {
+  const { refetch } = useGetTodosQuery(); // refetch を取得
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Todo App</h1>
+      <AddTodo refetch={refetch} />
+      <ListTodo />
     </div>
   );
 }
